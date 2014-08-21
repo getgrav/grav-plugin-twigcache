@@ -1,6 +1,6 @@
 # Grav TwigCache Plugin
 
-`TwigCache` is a [Grav](http://github.com/getgrav/grav) plugin that allows you to wrap portions of your Twig output in `cache` tags to cache specific ****long-running** or **expensive** twig processes.  The Grav TwigCache plugin is made possible by the [asm89/twig-cache-extension](https://github.com/asm89/twig-cache-extension) Twig extension.
+`TwigCache` is a [Grav](http://github.com/getgrav/grav) plugin that allows you to wrap portions of your Twig output in `cache` tags to cache specific **long-running** or **expensive** twig processes.  The Grav TwigCache plugin is made possible by the [asm89/twig-cache-extension](https://github.com/asm89/twig-cache-extension) Twig extension.
 
 # Installation
 
