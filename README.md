@@ -16,7 +16,7 @@ You should now have all the plugin files under
 
 The `twigcache` plugin doesn't require any configuration. The moment you install it, it is ready to use. It uses the same cache mechanism that Grav is using, so it automatically stores the result data in `APC`, `XCache`, `WinCache`, `memcache`, `FileSystem`, etc.
 
-To take advantage of the plugin you should wrap your ****long-running** or **expensive** twig processes in the `cache` tags:
+To take advantage of the plugin you should wrap your **long-running** or **expensive** twig processes in the `cache` tags:
 
 ```
 {% cache 'github_api_stars' 600 %}
