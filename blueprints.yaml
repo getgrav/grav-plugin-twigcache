@@ -1,0 +1,17 @@
+name: TwigCache Plugin
+version: 1.0.0
+description: Provides a Twig Extension to enable caching in Twig templates
+validation: strict
+
+form:
+  fields:
+    enabled:
+        type: toggle
+        label: Plugin status
+        highlight: 1
+        default: 1
+        options:
+            1: Enabled
+            0: Disabled
+        validate:
+            type: bool
