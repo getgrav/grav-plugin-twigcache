@@ -1,6 +1,16 @@
-name: TwigCache Plugin
-version: 1.0.0
-description: Provides a Twig Extension to enable caching in Twig templates
+name: Twig Cache
+version: 1.0.1
+description: "This plugin adds another layer of cache to specify portions your Twig output. Uses the [twig-cache-extension](https://github.com/asm89/twig-cache-extension) extension."
+icon: hdd-o
+author:
+  name: Team Grav
+  email: devs@getgrav.org
+  url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-plugin-twigcache
+keywords: twigcache, plugin, cache, twig, extension
+bugs: https://github.com/getgrav/grav-plugin-twigcache/issues
+license: MIT
+
 validation: strict
 
 form:
