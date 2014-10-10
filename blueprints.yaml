@@ -1,5 +1,5 @@
 name: Twig Cache
-version: 1.0.1
+version: 1.0.2
 description: "This plugin adds another layer of cache to specify portions your Twig output. Uses the [twig-cache-extension](https://github.com/asm89/twig-cache-extension) extension."
 icon: hdd-o
 author:
