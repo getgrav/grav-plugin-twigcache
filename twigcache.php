@@ -11,11 +11,6 @@ use Asm89\Twig\CacheExtension\Extension as CacheExtension;
 class TwigCachePlugin extends Plugin
 {
     /**
-     * @var bool
-     */
-    protected $active = false;
-
-    /**
      * @var Uri
      */
     protected $uri;
@@ -40,6 +35,11 @@ class TwigCachePlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
+        if ($this->isAdmin()) {
+            $this->active = false;
+            return;
+        }
+
         if (file_exists($file = __DIR__.'/vendor/autoload.php')) {
             $autoload = require_once $file;
         } else {
@@ -49,6 +49,8 @@ class TwigCachePlugin extends Plugin
 
     public function onTwigExtensions()
     {
+        if (!$this->active) return;
+
         $cacheDriver = $this->grav['cache']->getCacheDriver();
         $cacheProvider  = new DoctrineCacheAdapter($cacheDriver);
         $cacheStrategy  = new LifetimeCacheStrategy($cacheProvider);
