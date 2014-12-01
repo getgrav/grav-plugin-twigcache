@@ -23,10 +23,10 @@ class TwigCachePlugin extends Plugin
     /**
      * @return array
      */
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents()
+    {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0],
-            'onTwigExtensions' => ['onTwigExtensions', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0]
         ];
     }
 
@@ -45,12 +45,14 @@ class TwigCachePlugin extends Plugin
         } else {
             throw new RuntimeException('Cannot load Twig Cache Extensions');
         }
+
+        $this->enable([
+            'onTwigExtensions' => ['onTwigExtensions', 0]
+        ]);
     }
 
     public function onTwigExtensions()
     {
-        if (!$this->active) return;
-
         $cacheDriver = $this->grav['cache']->getCacheDriver();
         $cacheProvider  = new DoctrineCacheAdapter($cacheDriver);
         $cacheStrategy  = new LifetimeCacheStrategy($cacheProvider);
