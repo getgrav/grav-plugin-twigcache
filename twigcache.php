@@ -11,11 +11,6 @@ use Asm89\Twig\CacheExtension\Extension as CacheExtension;
 class TwigCachePlugin extends Plugin
 {
     /**
-     * @var bool
-     */
-    protected $active = false;
-
-    /**
      * @var Uri
      */
     protected $uri;
@@ -28,10 +23,10 @@ class TwigCachePlugin extends Plugin
     /**
      * @return array
      */
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents()
+    {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0],
-            'onTwigExtensions' => ['onTwigExtensions', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0]
         ];
     }
 
@@ -40,11 +35,20 @@ class TwigCachePlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
+        if ($this->isAdmin()) {
+            $this->active = false;
+            return;
+        }
+
         if (file_exists($file = __DIR__.'/vendor/autoload.php')) {
             $autoload = require_once $file;
         } else {
             throw new RuntimeException('Cannot load Twig Cache Extensions');
         }
+
+        $this->enable([
+            'onTwigExtensions' => ['onTwigExtensions', 0]
+        ]);
     }
 
     public function onTwigExtensions()
