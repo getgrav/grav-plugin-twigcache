@@ -1,5 +1,5 @@
 name: Twig Cache
-version: 1.3.0
+version: 1.4.0
 description: "This plugin adds another layer of cache to specify portions your Twig output. Uses the [twig-cache-extension](https://github.com/asm89/twig-cache-extension) extension."
 icon: hdd-o
 author:
@@ -10,6 +10,9 @@ homepage: https://github.com/getgrav/grav-plugin-twigcache
 keywords: twigcache, plugin, cache, twig, extension
 bugs: https://github.com/getgrav/grav-plugin-twigcache/issues
 license: MIT
+
+compatibility:
+  grav: ['1.7', '2.0']
 
 form:
   validation: strict
