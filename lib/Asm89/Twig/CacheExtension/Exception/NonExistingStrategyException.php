@@ -16,7 +16,7 @@ class NonExistingStrategyException extends BaseException
     /**
      * {@inheritdoc}
      */
-    public function __construct($strategyKey, $code = 0, \Exception $previous = null)
+    public function __construct($strategyKey, $code = 0, ?\Exception $previous = null)
     {
         parent::__construct(sprintf('No strategy configured with key "%s".', $strategyKey), $code, $previous);
     }

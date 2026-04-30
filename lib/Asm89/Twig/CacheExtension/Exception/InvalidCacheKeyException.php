@@ -16,7 +16,7 @@ class InvalidCacheKeyException extends BaseException
     /**
      * {@inheritdoc}
      */
-    public function __construct($message = 'Key generator did not return a key.', $code = 0, \Exception $previous = null)
+    public function __construct($message = 'Key generator did not return a key.', $code = 0, ?\Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }

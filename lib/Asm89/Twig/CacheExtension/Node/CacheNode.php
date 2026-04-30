@@ -16,18 +16,18 @@ namespace Asm89\Twig\CacheExtension\Node;
  *
  * @author Alexander <iam.asm89@gmail.com>
  */
-class CacheNode extends \Twig_Node
+class CacheNode extends \Twig\Node\Node
 {
     private static $cacheCount = 1;
 
     /**
-     * @param \Twig_Node_Expression $annotation
-     * @param \Twig_Node_Expression $keyInfo
-     * @param \Twig_NodeInterface   $body
-     * @param integer               $lineno
-     * @param string                $tag
+     * @param \Twig\Node\Expression\AbstractExpression $annotation
+     * @param \Twig\Node\Expression\AbstractExpression $keyInfo
+     * @param \Twig\Node\Node                          $body
+     * @param integer                                  $lineno
+     * @param string                                   $tag
      */
-    public function __construct(\Twig_Node_Expression $annotation, \Twig_Node_Expression $keyInfo, \Twig_Node $body, $lineno, $tag = null)
+    public function __construct(\Twig\Node\Expression\AbstractExpression $annotation, \Twig\Node\Expression\AbstractExpression $keyInfo, \Twig\Node\Node $body, $lineno, $tag = null)
     {
         parent::__construct(array('key_info' => $keyInfo, 'body' => $body, 'annotation' => $annotation), array(), $lineno, $tag);
     }
@@ -35,15 +35,11 @@ class CacheNode extends \Twig_Node
     /**
      * {@inheritDoc}
      */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(\Twig\Compiler $compiler)
     {
         $i = self::$cacheCount++;
 
-        if (version_compare(\Twig_Environment::VERSION, '1.26.0', '>=')) {
-            $extension = 'Asm89\Twig\CacheExtension\Extension';
-        } else {
-            $extension = 'asm89_cache';
-        }
+        $extension = 'Asm89\Twig\CacheExtension\Extension';
 
         $compiler
             ->addDebugInfo($this)

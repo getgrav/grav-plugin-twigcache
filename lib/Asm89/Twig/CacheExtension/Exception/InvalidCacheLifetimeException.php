@@ -16,7 +16,7 @@ class InvalidCacheLifetimeException extends BaseException
     /**
      * {@inheritdoc}
      */
-    public function __construct($lifetime, $code = 0, \Exception $previous = null)
+    public function __construct($lifetime, $code = 0, ?\Exception $previous = null)
     {
         parent::__construct(sprintf('Value "%s" is not a valid lifetime.', gettype($lifetime)), $code, $previous);
     }
